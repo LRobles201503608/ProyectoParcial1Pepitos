@@ -10,10 +10,6 @@ router.get('/view',function(req,res,next){
     res.render('vista.html');
 });
 
-router.get('/login',function(req,res,next){
-    res.render('login.html');
-});
-
 router.post('/input',(req,res,next)=>{
     let entrada = req.body;
     console.log(entrada);
