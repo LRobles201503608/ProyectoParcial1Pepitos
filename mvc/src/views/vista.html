@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.9/ace.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js">
+    </script>
+         
+        <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css" media="screen">
+        <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+        <title>Este es un ejemplo</title>
+        <script>
+            async function Conectar(){
+                const t={
+                    hola:'hola'
+                }
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(t)
+                };
+
+                const data = await fetch('http://localhost:3000/input', options);
+                const json = await data.json();
+
+                //modalast();
+                alert(json)
+                console.log(options);
+                console.log(data);
+                //resultado = json;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" align="center">
+                        <div class="cardHeader">
+                        <p>Datos</p>  
+                        </div>
+                        <div class="cardBody">
+                            <input class="form-control mr-sm-2" type="text" name="hola" placeholder="nombre" autofocus><br>
+                            <input class="form-control mr-sm-2" type="text" name="hola" placeholder="clave"><br>
+                            <button class="btn btn-secondary my-2 my-sm-0" name="enviar" onclick="Conectar()">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+        </script>
+    </body>
+</html>
