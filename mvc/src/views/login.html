@@ -7,6 +7,56 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+      var db = [
+         { us: 'richi',
+          pass: 'richi1'},
+         { us: 'richi2',
+          pass: 'richi1'},
+         { us: 'richi',
+          pass: 'richi1'},
+         { us: 'richi',
+          pass: 'richi1'},
+
+      ]
+
+      async function log(){
+       
+        const t={
+                  nombre:document.getElementById("login").value,
+                  pass:document.getElementById("password").value
+              };
+              const options = {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body:{
+                    nombre:document.getElementById("login").value,
+                    pass:document.getElementById("password").value
+                  }
+              };
+
+              const data = await fetch('http://localhost:3000/login2', options);
+              const json = await data.json();
+
+              //modalast();
+              alert(json)
+              console.log(options);
+              console.log(data);
+/*
+        for (let index = 0; index < db.length; index++) {
+               const element = db[index];
+               if(element.us == document.getElementById("login").value && element.pass == document.getElementById("password").value){
+                  //alert("Bienvenido "+ document.getElementById("login").value)
+                  window.location.pathname = '/view'
+                  return
+              }
+           }
+                  alert("Datos incorrectos!")*/
+      }
+  </script>
     <style>
 
 /* BASIC */
@@ -272,32 +322,6 @@ input[type=text]:placeholder {
 }
     </style>
 
-    <script>
-
-        var db = [
-           { us: 'richi',
-            pass: 'richi1'},
-           { us: 'richi2',
-            pass: 'richi1'},
-           { us: 'richi',
-            pass: 'richi1'},
-           { us: 'richi',
-            pass: 'richi1'},
-
-        ]
-
-         function log(){
-             for (let index = 0; index < db.length; index++) {
-                 const element = db[index];
-                 if(element.us == document.getElementById("login").value && element.pass == document.getElementById("password").value){
-                    //alert("Bienvenido "+ document.getElementById("login").value)
-                    window.location.pathname = '/view'
-                    return
-                }
-             }
-                    alert("Datos incorrectos!")
-        }
-    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
