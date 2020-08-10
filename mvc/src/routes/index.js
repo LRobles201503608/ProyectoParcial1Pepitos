@@ -21,7 +21,7 @@ router.post('/login2',urlencodedParser,(req,res,next)=>{
         { us: 'richi',
          pass: 'richi1'},
         { us: 'richi2',
-         pass: 'richi1'},
+         pass: 'richi123'},
         { us: 'richi3',
          pass: 'richi123'},
         { us: 'richi4',
