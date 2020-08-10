@@ -25,7 +25,7 @@ router.post('/login2',urlencodedParser,(req,res,next)=>{
         { us: 'richi3',
          pass: 'richi123'},
         { us: 'richi4',
-         pass: 'richi123'},
+         pass: 'richi1'},
 
      ]
     let entrada = req.body;
