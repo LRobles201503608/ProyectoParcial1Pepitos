@@ -29,22 +29,26 @@
               };
               const options = {
                   method: 'POST',
+                  mode:'cors',
                   headers: {
                       'Content-Type': 'application/json'
                   },
-                  body:{
-                    nombre:document.getElementById("login").value,
-                    pass:document.getElementById("password").value
-                  }
+                  body: JSON.stringify(t)
               };
 
               const data = await fetch('http://localhost:3000/login2', options);
               const json = await data.json();
 
               //modalast();
-              alert(json)
-              console.log(options);
-              console.log(data);
+              //alert(json)
+              //console.log(options);
+              console.log(json);
+
+              if(json.estado==false){
+                alert('Existe un error en sus datos')
+              }else{
+                window.location.pathname = '/view'
+              }
 /*
         for (let index = 0; index < db.length; index++) {
                const element = db[index];
@@ -175,7 +179,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input[type=text],input[type=password] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -339,7 +343,7 @@ input[type=text]:placeholder {
           <!-- Login Form -->
           <div >
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="usuario">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="contraseña">
+            <input type="password" id="password" class="fadeIn third" name="login" placeholder="contraseña">
             <input type="button" class="fadeIn fourth" value="Log In" onclick="log()">
           </div>
       
